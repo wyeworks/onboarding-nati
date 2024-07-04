@@ -7,4 +7,5 @@
 #  updated_at :datetime         not null
 #
 class Gate < ApplicationRecord
+    belongs_to :airport
 end

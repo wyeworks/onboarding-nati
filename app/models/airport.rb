@@ -12,4 +12,6 @@
 class Airport < ApplicationRecord
     belongs_to :arrival
     belongs_to :departure
+
+    has_many :gates
 end
