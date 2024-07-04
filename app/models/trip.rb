@@ -9,5 +9,8 @@
 #  updated_at    :datetime         not null
 #
 class Trip < ApplicationRecord
+    has_one :airport, through: :arrival
+    has_one :airport, through: :departure
+
     validates :flight_number, absence: true
 end

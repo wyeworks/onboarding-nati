@@ -10,4 +10,6 @@
 #  updated_at :datetime         not null
 #
 class Airport < ApplicationRecord
+    belongs_to :arrival
+    belongs_to :departure
 end
