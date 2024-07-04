@@ -10,4 +10,5 @@
 #  updated_at :datetime         not null
 #
 class Plane < ApplicationRecord
+    has_many :seats
 end

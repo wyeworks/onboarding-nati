@@ -8,4 +8,6 @@
 #  updated_at :datetime         not null
 #
 class Seat < ApplicationRecord
+    belongs_to :plane
+    belongs_to :ticket
 end

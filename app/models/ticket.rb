@@ -7,4 +7,6 @@
 #  updated_at :datetime         not null
 #
 class Ticket < ApplicationRecord
+    has_one :seat
+    belongs_to :passenger
 end

@@ -11,4 +11,5 @@
 #  updated_at  :datetime         not null
 #
 class Passenger < Person
+    has_one :ticket
 end
