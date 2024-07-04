@@ -11,4 +11,5 @@
 #  updated_at  :datetime         not null
 #
 class CrewMember < Person
+    belongs_to :flight
 end

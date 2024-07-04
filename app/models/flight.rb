@@ -10,4 +10,5 @@
 #
 class Flight < Trip
     has_one :plane
+    has_many :crew_members
 end
