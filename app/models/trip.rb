@@ -9,5 +9,5 @@
 #  updated_at    :datetime         not null
 #
 class Trip < ApplicationRecord
-    validates flight_number, absence: true
+    validates :flight_number, absence: true
 end
