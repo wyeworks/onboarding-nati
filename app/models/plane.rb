@@ -11,4 +11,5 @@
 #
 class Plane < ApplicationRecord
     has_many :seats
+    belongs_to :flight
 end

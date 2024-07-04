@@ -9,4 +9,5 @@
 #  updated_at    :datetime         not null
 #
 class Flight < Trip
+    has_one :plane
 end
