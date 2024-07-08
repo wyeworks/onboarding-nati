@@ -8,15 +8,17 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  indirect_flight_id :integer
+#  plane_id           :integer          not null
 #
 # Indexes
 #
 #  index_flights_on_indirect_flight_id  (indirect_flight_id)
+#  index_flights_on_plane_id            (plane_id)
 #
 # Foreign Keys
 #
 #  indirect_flight_id  (indirect_flight_id => flights.id)
+#  plane_id            (plane_id => planes.id)
 #
 class DirectFlight < Flight
-  validates :indirect_flight_id, presence: true
 end
