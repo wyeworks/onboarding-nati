@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_112247) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_08_121650) do
   create_table "airports", force: :cascade do |t|
     t.integer "code"
     t.float "location_latitude"
@@ -20,6 +20,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_112247) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "flights", force: :cascade do |t|
+    t.integer "flight_number"
+    t.string "type"
+    t.integer "indirect_flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["indirect_flight_id"], name: "index_flights_on_indirect_flight_id"
+  end
+
+  create_table "flights_gates", id: false, force: :cascade do |t|
+    t.integer "flight_id", null: false
+    t.integer "gate_id", null: false
+  end
+
   create_table "gates", force: :cascade do |t|
     t.integer "airport_id", null: false
     t.datetime "created_at", null: false
@@ -27,5 +41,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_112247) do
     t.index ["airport_id"], name: "index_gates_on_airport_id"
   end
 
+  add_foreign_key "flights", "flights", column: "indirect_flight_id"
   add_foreign_key "gates", "airports"
 end
