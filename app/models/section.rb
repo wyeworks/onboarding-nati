@@ -17,4 +17,5 @@
 #
 class Section < ApplicationRecord
   belongs_to :plane
+  has_one :plane_seat
 end

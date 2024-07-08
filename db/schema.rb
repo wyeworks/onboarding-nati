@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_125100) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_08_135025) do
   create_table "airports", force: :cascade do |t|
     t.integer "code"
     t.float "location_latitude"
@@ -51,6 +51,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_125100) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "seats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "section_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["section_id"], name: "index_seats_on_section_id"
+    t.index ["user_id"], name: "index_seats_on_user_id"
+  end
+
   create_table "sections", force: :cascade do |t|
     t.integer "plane_id", null: false
     t.datetime "created_at", null: false
@@ -58,8 +67,20 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_125100) do
     t.index ["plane_id"], name: "index_sections_on_plane_id"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "nationality"
+    t.string "passaport"
+    t.string "string"
+    t.integer "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "flights", "flights", column: "indirect_flight_id"
   add_foreign_key "flights", "planes"
   add_foreign_key "gates", "airports"
+  add_foreign_key "seats", "sections"
+  add_foreign_key "seats", "users"
   add_foreign_key "sections", "planes"
 end

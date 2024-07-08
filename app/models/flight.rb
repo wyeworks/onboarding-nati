@@ -22,7 +22,7 @@
 #
 class Flight < ApplicationRecord
   validates :gates, length: { is: 2 }
-  validates :indirect_flight_id, absence: true
+  validates :indirect_flight_id, absence: true # TODO pasarlo al indirect flight
 
   has_many :direct_flights, class_name: "DirectFlight", foreign_key: "indirect_flight_id"
   belongs_to :indirect_flights, class_name: "IndirectFlight", optional: true
