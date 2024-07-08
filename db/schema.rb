@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_135025) do
     t.integer "indirect_flight_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "plane_id", null: false
+    t.integer "plane_id"
     t.index ["indirect_flight_id"], name: "index_flights_on_indirect_flight_id"
     t.index ["plane_id"], name: "index_flights_on_plane_id"
   end

@@ -8,7 +8,7 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  indirect_flight_id :integer
-#  plane_id           :integer          not null
+#  plane_id           :integer
 #
 # Indexes
 #

@@ -8,7 +8,7 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  indirect_flight_id :integer
-#  plane_id           :integer          not null
+#  plane_id           :integer
 #
 # Indexes
 #
@@ -22,11 +22,9 @@
 #
 class Flight < ApplicationRecord
   validates :gates, length: { is: 2 }
-  validates :indirect_flight_id, absence: true # TODO pasarlo al indirect flight
 
   has_many :direct_flights, class_name: "DirectFlight", foreign_key: "indirect_flight_id"
   belongs_to :indirect_flights, class_name: "IndirectFlight", optional: true
 
   has_and_belongs_to_many :gates
-  belongs_to :plane
 end

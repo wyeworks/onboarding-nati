@@ -8,7 +8,7 @@
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  indirect_flight_id :integer
-#  plane_id           :integer          not null
+#  plane_id           :integer
 #
 # Indexes
 #
@@ -21,5 +21,6 @@
 #  plane_id            (plane_id => planes.id)
 #
 class IndirectFlight < Flight
-  validates :indirect_flights, length: { minimum: 2 }
+  validates :direct_flights, length: { minimum: 2 }
+  validates :indirect_flight_id, absence: true 
 end
