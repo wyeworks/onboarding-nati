@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: airports
+#
+#  id                 :integer          not null, primary key
+#  code               :integer
+#  location_latitude  :float
+#  location_longitude :float
+#  name               :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+one:
+  code: 1
+  location_latitude: 1.5
+  location_longitude: 1.5
+  name: MyString
+
+two:
+  code: 1
+  location_latitude: 1.5
+  location_longitude: 1.5
+  name: MyString
